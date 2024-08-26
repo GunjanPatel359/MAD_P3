@@ -1,6 +1,7 @@
 package com.example.mad_practical_2_22012011131
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +17,9 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val displayName=findViewById<TextView>(R.id.display_name)
+        val username=intent.getStringExtra("username")
+        val textname= "hello $username"
+        displayName.text = textname
     }
 }
