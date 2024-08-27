@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mad_practical_2_22012011131"
+    namespace = "com.example.mad_p3"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.mad_practical_2_22012011131"
+        applicationId = "com.example.mad_p3"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

@@ -1,4 +1,4 @@
-package com.example.mad_practical_2_22012011131
+package com.example.mad_p3
 
 import org.junit.Test
 
