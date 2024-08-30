@@ -3,6 +3,8 @@ package com.example.mad_p3
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.AlarmClock
+import android.provider.CallLog
 import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
@@ -31,15 +33,22 @@ class MainActivity : AppCompatActivity() {
         val webpagebtn=findViewById<Button>(R.id.webpagebtn)
         val callbtn=findViewById<Button>(R.id.callbtn)
         val camerabtn=findViewById<Button>(R.id.camerabtn)
+        val calllog=findViewById<Button>(R.id.calllog)
+        val galleryview=findViewById<Button>(R.id.galleryview)
+        val alarmbtn=findViewById<Button>(R.id.alarmbtn)
 
         webpagebtn.setOnClickListener {
-            val intent=Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/GunjanPatel359"))
+            val webedittext=findViewById<EditText>(R.id.webedittext)
+            val text=webedittext.text.toString()
+            val intent=Intent(Intent.ACTION_VIEW, Uri.parse(text))
             startActivity(intent)
         }
 
         callbtn.setOnClickListener {
+            val phoneinput=findViewById<EditText>(R.id.phoneinput)
+            val text=phoneinput.text
             val intent=Intent(Intent.ACTION_DIAL)
-            intent.data=Uri.parse("tel:+9106209714")
+            intent.data=Uri.parse("tel:+${text}")
             startActivity(intent)
         }
 
@@ -47,5 +56,23 @@ class MainActivity : AppCompatActivity() {
             val intent=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivity(intent)
         }
+
+        calllog.setOnClickListener {
+            val intent=Intent(Intent.ACTION_VIEW).setType(CallLog.Calls.CONTENT_TYPE)
+            startActivity(intent)
+        }
+
+        galleryview.setOnClickListener {
+            Intent(Intent.ACTION_VIEW).setType("image/*").also {
+                startActivity(it)
+            }
+        }
+
+        alarmbtn.setOnClickListener {
+            Intent(AlarmClock.ACTION_SHOW_ALARMS).also {
+                startActivity(it)
+            }
+        }
+
     }
 }
