@@ -47,8 +47,8 @@ class MainActivity : AppCompatActivity() {
         callbtn.setOnClickListener {
             val phoneinput=findViewById<EditText>(R.id.phoneinput)
             val text=phoneinput.text
-            val intent=Intent(Intent.ACTION_DIAL)
-            intent.data=Uri.parse("tel:+${text}")
+            val intent=Intent(Intent.ACTION_DIAL,Uri.parse("tel:+${text}"))
+//            intent.data=Uri.parse("tel:+${text}")
             startActivity(intent)
         }
 
